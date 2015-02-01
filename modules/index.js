@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1/ict_daily_report', function (err) {
+var config = require('../config');
+console.log(config.db);
+mongoose.connect(config.db, function (err) {
   if (err) {
     console.error('connect to mongoDB error: '+err);
     process.exit(1);
