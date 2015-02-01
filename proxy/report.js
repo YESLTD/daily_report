@@ -7,6 +7,9 @@ exports.save = function (req,res,next) {
   var name = req.body.name;
   var content = req.body['report[]'];
   console.log(req.body);
+  if(name === null || name.trim().length === 0){
+    return res.json({flag:false});
+  }
   if(content.size === 0){
     return res.json({flag:false});
   }
@@ -15,6 +18,10 @@ exports.save = function (req,res,next) {
       return false;
       return true;
     });
+    console.log('content.length' + content.length);
+  if(content.length === 0){
+    return res.json({flag:false});
+  }
   console.log(name + content);
   var dateHours = (new Date()).getHours();
   var obj = null;

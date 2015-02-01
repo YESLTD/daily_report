@@ -48,10 +48,12 @@
       console.log('query = '+JSON.stringify(query));
       $.post('/save',query,function () {
         console.log('info');
-        $('#note').css("display","block").text('正在提交......');
+        $('.note').addClass('alert-info').css("display","block").text('正在提交......');
       }).done(function () {
         console.log('good');
+        $('.note').addClass('alert-success').css("display","block").text('提交完成');
       }).fail(function () {
+        $('.note').addClass('alert-danger').css("display","block").text('提交失败了....:(');
         console.log('fail');
       });
     });
