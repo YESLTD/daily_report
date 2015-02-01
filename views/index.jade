@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .jumbotron
+      h1= title
+      p 测试版本 0.0.1
+      p#date 今天是 #{title}
+      .btn.btn-warning.btn-lg.col-md-offset-10 汇总
+  form
+    .container#group
+      .input-group
+        span.input-group-addon.basic-addon1 您的名字
+        input.form-control#name(type='text' )
+      p
+      .input-group
+        span.input-group-addon.basic-addon1 1
+        input.form-control.keytab(type='text' )
+    .container
+      p
+        .alert.alert-info.disable.note
+      p
+        .btn.btn-primary.btn-lg.col-md-offset-5#post() 提交
